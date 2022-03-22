@@ -1,0 +1,18 @@
+.nav{
+    height: 70px;
+    box-shadow: 0 1px 8px gray;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+}
+.menu{
+    padding-left: 10px;
+}
+.nav-image{
+margin: auto;
+    height: 60px;
+    object-fit: contain;
+}
