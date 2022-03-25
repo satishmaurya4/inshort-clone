@@ -4,12 +4,16 @@ import Nav from './components/nav/Nav'
 import axios from 'axios'
 import {API_KEY} from './api/API_KEY'
 import NewsContents from './newsContents/NewsContents';
+import Theme from './components/theme/Theme';
+import { useThemeProviderValue } from './context/ThemeContext';
 
 function App() {
   const [category, setCategory] = useState('general');
   const [newsResults, setNewsResults] = useState(0);
   const [newsArray, setNewsArray] = useState([]);
   const [loadmore, setLoadmore] = useState(10);
+
+  const { isLight } = useThemeProviderValue();
 
 
   const newsApi = async () => {
@@ -30,10 +34,12 @@ newsApi();
     
   },[category, loadmore])
 
+
   return (
-    <div>
+    <div style={ isLight ? {backgroundColor:'#fff', color: '#000'} : {backgroundColor: '#000', color: '#fff'}}>
       <Nav setCategory={setCategory} />
       <NewsContents newsArray={newsArray} newsResults={newsResults} loadmore={loadmore} setLoadmore={setLoadmore} />
+      <Theme />
     </div>
   );
 }

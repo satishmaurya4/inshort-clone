@@ -1,4 +1,5 @@
 import React from "react";
+import { useThemeProviderValue } from "../context/ThemeContext";
 import "./NewsCard.css";
 
 const NewsCard = ({ newsItem }) => {
@@ -17,8 +18,10 @@ const NewsCard = ({ newsItem }) => {
   const hour = parseInt(date[4].substring(0, 2));
   const time = hour > 12 ? true : false;
 
+  const { isLight } = useThemeProviderValue();
+
   return (
-    <div className="news-card">
+    <div className="news-card" style={!isLight ? {boxShadow: '0 2px 5px #fff'} : {boxShadow:'0 2px 5px rgba(0,0,0,0.4)'}}>
       <img
         className="news-image"
         alt={title}
@@ -46,7 +49,7 @@ const NewsCard = ({ newsItem }) => {
           <div className="description">{description}</div>
           <span className="readmore">
             read more at {" "}
-            <a href={url} target="_blank" className="source">
+            <a href={url} target="_blank" className="source" style={!isLight ?{color:'#383838'} : {color:'#000'}}>
               {source.name}
             </a>
           </span>

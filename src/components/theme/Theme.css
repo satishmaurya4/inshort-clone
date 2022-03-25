@@ -1,0 +1,17 @@
+.theme-btn-container{
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    height: 38px;
+    /* width: 60px; */
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0px 10px;
+    gap: 10px;
+}
+.sun-icon, .moon-icon{
+    cursor: pointer;
+}
